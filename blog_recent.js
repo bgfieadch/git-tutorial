@@ -4,6 +4,9 @@ const fs = require('fs');
 http.createServer(function (req, res) {
     if(req.url == '/'){
         getTitles(res);
+    }else{
+        console.log('你输入的地址：'+req.url+" 有误");
+        res.end('你输入的地址：'+req.url+" 有误");
     }
 }).listen(8081);
 
