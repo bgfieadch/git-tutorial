@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 
 http.createServer(function (req, res) {
+    res.writeHead(200,{'Content-Type':'text/html;charset=utf-8'});
     if(req.url == '/'){
         getTitles(res);
     }else{
@@ -26,7 +27,6 @@ function getTemplate(titles, res){
 
 function formatHtml(titles, tmpl, res){
     const html = tmpl.replace("%", titles.join('</li><li>'));
-    res.writeHead(200, {'Content-Type': 'text/html'})
     res.end(html);
 }
 
